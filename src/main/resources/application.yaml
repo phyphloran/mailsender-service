@@ -1,0 +1,19 @@
+server:
+  port: ${PORT}
+  code-cache-size: ${CODE_CACHE_SIZE}
+  code-life-time: ${CODE_LIFE_TIME}
+
+spring:
+  mail:
+    host: ${MAIL_HOST}
+    port: ${MAIL_PORT}
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+      mail.smtp.starttls.required: true
+      mail.smtp.from: ${MAIL_USERNAME}
+      mail.smtp.connectiontimeout: 10000
+      mail.smtp.timeout: 10000
+      mail.smtp.writetimeout: 10000
