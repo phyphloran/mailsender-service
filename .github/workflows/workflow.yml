@@ -9,12 +9,12 @@ on:
 jobs:
   build-and-test:
     runs-on: self-hosted
+    environment: secrets
     steps:
       - uses: actions/checkout@v4
-      - name: Build Docker image
-        run: docker build --target build -t mailsender-build:latest .
-      - name: Run tests in container
+      - name: Build & Test Docker image
         run: |
+          docker build --target build -t mailsender-build:latest .
           docker run --rm \
             -e CODE_CACHE_SIZE=${{ secrets.CODE_CACHE_SIZE }} \
             -e CODE_LIFE_TIME=${{ secrets.CODE_LIFE_TIME }} \
@@ -23,7 +23,7 @@ jobs:
             -e MAIL_USERNAME=${{ secrets.MAIL_USERNAME }} \
             -e MAIL_PASSWORD=${{ secrets.MAIL_PASSWORD }} \
             -e PORT=${{ secrets.PORT }} \
-            mailsender-build:latest mvn test
+            mailsender-build:latest mvn test -DskipTests=false
 
   deploy:
     runs-on: self-hosted
@@ -49,6 +49,5 @@ jobs:
             -e MAIL_USERNAME=${{ secrets.MAIL_USERNAME }} \
             -e MAIL_PASSWORD=${{ secrets.MAIL_PASSWORD }} \
             -e PORT=${{ secrets.PORT }} \
-            -v ~/app/log.txt:/app/log.txt \
             -p 8080:8080 \
             mailsender:latest
