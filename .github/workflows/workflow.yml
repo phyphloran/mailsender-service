@@ -12,6 +12,7 @@ jobs:
     environment: secrets
     steps:
       - uses: actions/checkout@v4
+
       - name: Build Docker image
         run: docker build -t mailsender:latest .
 
@@ -24,20 +25,26 @@ jobs:
 
       - name: Stop old container
         run: |
-          docker stop mailsender || true
-          docker rm mailsender || true
+          if docker ps -a --format '{{.Names}}' | grep -Eq '^mailsender$'; then
+            docker stop mailsender
+            docker rm mailsender
+          fi
 
       - name: Run new container
         run: |
           docker run -d \
             --name mailsender \
             --restart unless-stopped \
-            -e CODE_CACHE_SIZE=${{ secrets.CODE_CACHE_SIZE }} \
-            -e CODE_LIFE_TIME=${{ secrets.CODE_LIFE_TIME }} \
-            -e MAIL_HOST=${{ secrets.MAIL_HOST }} \
-            -e MAIL_PORT=${{ secrets.MAIL_PORT }} \
-            -e MAIL_USERNAME=${{ secrets.MAIL_USERNAME }} \
-            -e MAIL_PASSWORD=${{ secrets.MAIL_PASSWORD }} \
-            -e PORT=${{ secrets.PORT }} \
+            -e CODE_CACHE_SIZE="${{ secrets.CODE_CACHE_SIZE }}" \
+            -e CODE_LIFE_TIME="${{ secrets.CODE_LIFE_TIME }}" \
+            -e MAIL_HOST="${{ secrets.MAIL_HOST }}" \
+            -e MAIL_PORT="${{ secrets.MAIL_PORT }}" \
+            -e MAIL_USERNAME="${{ secrets.MAIL_USERNAME }}" \
+            -e MAIL_PASSWORD="${{ secrets.MAIL_PASSWORD }}" \
+            -e PORT="${{ secrets.PORT }}" \
+            -v ~/app/log.txt:/app/log.txt \
             -p 8080:8080 \
             mailsender:latest
+
+      - name: Check container logs
+        run: docker logs mailsender --tail 50
