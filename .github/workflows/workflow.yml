@@ -1,0 +1,40 @@
+name: workflow.yml
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build & Test Docker image
+        run: |
+          docker build --target build -t mailsender-build:latest .
+          docker run --rm \
+            --env-file ~/app/.env \
+            mailsender-build:latest mvn test
+
+  deploy:
+    runs-on: self-hosted
+    needs: build-and-test
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build runtime Docker image
+        run: docker build -t mailsender:latest .
+      - name: Stop old container
+        run: |
+          docker stop mailsender || true
+          docker rm mailsender || true
+      - name: Run new container
+        run: |
+          docker run -d \
+            --name mailsender \
+            --restart unless-stopped \
+            --env-file ~/app/.env \
+            -v ~/app/log.txt:/app/log.txt \
+            -p 8080:8080 \
+            mailsender:latest
