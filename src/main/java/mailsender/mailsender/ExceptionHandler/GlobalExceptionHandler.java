@@ -1,6 +1,7 @@
 package mailsender.mailsender.ExceptionHandler;
 
 
+import io.swagger.v3.oas.annotations.Hidden;
 import jakarta.validation.ConstraintViolationException;
 import lombok.extern.slf4j.Slf4j;
 import mailsender.mailsender.Dtos.ErrorDto;
@@ -18,7 +19,7 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @RestControllerAdvice
-//@Hidden
+@Hidden
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(ConstraintViolationException.class)
