@@ -1,4 +1,5 @@
-FROM maven:3.9.0-jdk-21 AS build
+FROM maven:3.9.3-openjdk-21 AS build
+
 WORKDIR /app
 COPY pom.xml .
 COPY src ./src
