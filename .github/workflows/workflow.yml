@@ -9,15 +9,16 @@ on:
 jobs:
   build:
     runs-on: self-hosted
+    environment: secrets
     steps:
       - uses: actions/checkout@v4
       - name: Build Docker image
         run: docker build -t mailsender:latest .
 
-
   deploy:
     runs-on: self-hosted
     needs: build
+    environment: secrets
     steps:
       - uses: actions/checkout@v4
 
