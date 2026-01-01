@@ -56,7 +56,6 @@ public class MailSenderServiceImpl implements MailSenderService {
         return true;
     }
 
-
     private String generateCode() {
         StringBuilder code = new StringBuilder();
         for (int i = 0; i < 6; i++) {
