@@ -9,6 +9,7 @@ import mailsender.mailsender.Requests.CheckCodeRequest;
 import mailsender.mailsender.Requests.GetCodeRequest;
 import mailsender.mailsender.Services.MailSenderService;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Primary;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,7 @@ import java.security.SecureRandom;
 
 
 @Service
+@Primary
 @RequiredArgsConstructor
 public class MailSenderServiceImpl implements MailSenderService {
 
