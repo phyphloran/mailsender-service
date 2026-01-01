@@ -39,3 +39,4 @@ The project includes an automated CI/CD pipeline that builds and deploys the ser
 ### Pipeline Stages:
 1. Build Stage
 2. Deploy Stage
+[![Build Status](https://github.com/phyphloran/mailsender-service/actions/workflows/workflow.yml/badge.svg)](https://github.com/phyphloran/mailsender-service/actions/workflows/workflow.yml)
