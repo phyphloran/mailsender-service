@@ -46,3 +46,7 @@ jobs:
 
       - name: Check container logs
         run: docker logs mailsender --tail 50
+
+      - name: Remove unused Docker images
+        run: |
+          docker image prune -f
