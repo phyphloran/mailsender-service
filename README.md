@@ -1,4 +1,4 @@
-# MailSender Service
+# 📧 MailSender Service
 
 MailSender is a Spring Boot microservice for sending and verifying one-time verification codes via email. It uses secure code generation and a time-limited cache to store codes safely. Ideal for user registration, two-factor authentication (2FA), or password recovery.
 
