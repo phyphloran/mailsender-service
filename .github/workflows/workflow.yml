@@ -33,7 +33,7 @@ jobs:
           docker run -d \
             --name mailsender \
             --restart unless-stopped \
-            --memory=200m \
+            --memory=500m \
             -e CODE_CACHE_SIZE="${{ secrets.CODE_CACHE_SIZE }}" \
             -e CODE_LIFE_TIME="${{ secrets.CODE_LIFE_TIME }}" \
             -e MAIL_HOST="${{ secrets.MAIL_HOST }}" \
