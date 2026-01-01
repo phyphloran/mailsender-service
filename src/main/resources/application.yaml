@@ -18,6 +18,7 @@ spring:
       mail.smtp.timeout: 10000
       mail.smtp.writetimeout: 10000
 
+
 # http://ip:port/swagger-ui.html
 springdoc:
   api-docs:
