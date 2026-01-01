@@ -30,3 +30,12 @@ All requests are validated using `@Valid` annotations, including email format an
 - Spring Mail (`JavaMailSender`)  
 - Caffeine Cache  
 - `spring-boot-starter-validation`
+
+---
+
+## 🔄 CI/CD Pipeline with GitHub Actions
+The project includes an automated CI/CD pipeline that builds and deploys the service using GitHub Actions and Docker.
+
+### Pipeline Stages:
+1. Build Stage
+2. Deploy Stage
