@@ -45,10 +45,23 @@ The project includes an automated CI/CD pipeline that builds and deploys the ser
 ---
 
 ## 📸 Frontend Screenshots
+
 <div align="center">
+
 ### 🏠 Main Page
-<img src="https://github.com/phyphloran/mailsender-service/blob/main/pics/main-page.png" alt="Main Page" width="80%"> <p><em>The main interface for entering email and requesting verification codes</em></p>
+<img src="https://github.com/phyphloran/mailsender-service/blob/main/pics/main-page.png" alt="Main Page" width="80%" style="border-radius: 10px; border: 1px solid #ddd;">
+<p><em>Main interface for entering email and requesting verification codes</em></p>
+
+<br>
+
 ### ✅ Successful Verification
-<img src="https://github.com/phyphloran/mailsender-service/blob/main/pics/success-verified.png" alt="Successful Verification" width="80%"> <p><em>Confirmation screen displayed after successful code validation</em></p>
+<img src="https://github.com/phyphloran/mailsender-service/blob/main/pics/success-verified.png" alt="Successful Verification" width="80%" style="border-radius: 10px; border: 1px solid #ddd;">
+<p><em>Confirmation screen displayed after successful code validation</em></p>
+
+<br>
+
 ### ❌ Invalid or Expired Code
-<img src="https://github.com/phyphloran/mailsender-service/blob/main/pics/incorrect-code.png" alt="Invalid Code" width="80%"> <p><em>Error message for incorrect, invalid, or expired verification codes</em></p></div>
+<img src="https://github.com/phyphloran/mailsender-service/blob/main/pics/incorrect-code.png" alt="Invalid Code" width="80%" style="border-radius: 10px; border: 1px solid #ddd;">
+<p><em>Error message for incorrect, invalid, or expired verification codes</em></p>
+
+</div>
