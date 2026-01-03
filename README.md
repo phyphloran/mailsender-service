@@ -41,3 +41,17 @@ The project includes an automated CI/CD pipeline that builds and deploys the ser
 2. Deploy Stage
 
 [![Build Status](https://github.com/phyphloran/mailsender-service/actions/workflows/workflow.yml/badge.svg)](https://github.com/phyphloran/mailsender-service/actions/workflows/workflow.yml)
+
+---
+
+## 📸 Frontend Screenshots
+
+<div align="center">
+
+| Feature | Screenshot | Description |
+|---------|------------|-------------|
+| **🏠 Main Page** | <img src="https://github.com/phyphloran/mailsender-service/blob/main/pics/main-page.png" alt="Main Page" width="400" style="border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"> | **Main Interface**<br>Enter email to request verification codes for registration, 2FA, or password recovery |
+| **✅ Successful Verification** | <img src="https://github.com/phyphloran/mailsender-service/blob/main/pics/success-verified.png" alt="Successful Verification" width="400" style="border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"> | **Validation Success**<br>Confirmation screen displayed when the verification code is successfully validated |
+| **❌ Invalid/Expired Code** | <img src="https://github.com/phyphloran/mailsender-service/blob/main/pics/incorrect-code.png" alt="Invalid Code" width="400" style="border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"> | **Error State**<br>Error message shown when code is incorrect, invalid, or has expired |
+
+</div>
